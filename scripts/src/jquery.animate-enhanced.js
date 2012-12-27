@@ -781,6 +781,12 @@ Changelog:
 							restore[cssPrefixes[i]+'transform'] = '';
 						}
 					}
+					
+					// remove the transition properties on stop/gotoEnd,
+					// fixes opacity gotoEnd on Chrome23, Safari6
+					for (i = cssPrefixes.length - 1; i >= 0; i--) {
+						restore[cssPrefixes[i]+'transition'] = '';
+					}
 				} else if (!_isEmptyObject(selfCSSData.secondary)) {
 					var cStyle = window.getComputedStyle(self[0], null);
 					if (cStyle) {
