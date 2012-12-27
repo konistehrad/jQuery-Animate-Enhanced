@@ -696,7 +696,11 @@ Changelog:
 							isDirection && prop.avoidTransforms === true ? cleanVal + valUnit : cleanVal,
 							isDirection && prop.avoidTransforms !== true,
 							isTranslatable,
-							(!("useTranslate3d" in prop) || prop.useTranslate3d === true));
+							// If we're not explicitly set, bubble defaults up,
+							// else, use the property
+							!("useTranslate3d" in prop) ?
+								undefined :
+								(prop.useTranslate3d === true));
 
 					}
 					else {
