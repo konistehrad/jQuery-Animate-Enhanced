@@ -791,7 +791,7 @@ Changelog:
 					// remove the transition properties on stop/gotoEnd,
 					// fixes opacity continues to run problem
 					for (i = cssPrefixes.length - 1; i >= 0; i--) {
-						restore[cssPrefixes[i]+'transition'] = '';
+						restore[cssPrefixes[i]+'transition'] = 'none 0s';
 					}
 				} else if (!_isEmptyObject(selfCSSData.secondary)) {
 					var cStyle = window.getComputedStyle(self[0], null);
